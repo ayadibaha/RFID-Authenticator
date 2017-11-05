@@ -1,7 +1,7 @@
 from Tkinter import *
 from config.connect import Config
 
-androidConnection = None
+arduinoConnection = None
 
 def config():
 	configWindow = Tk()
@@ -20,13 +20,13 @@ def config():
 	b.place(relx=1.0, rely=1.0, anchor=SE)
 
 def configFx(root, device, port):
-	global androidConnection
-	androidConnection = Config(device, port).getConnection()
-	if "Error" in androidConnection :
+	global arduinoConnection
+	arduinoConnection = Config(device, port).getConnection()
+	if "Error" in arduinoConnection :
 		error = Label(root, text="Error while connecting!")
 		error.pack()
 	else :
-		print "Connection : "+androidConnection
+		print "Connection : "+arduinoConnection
 		root.destroy()
 
 master = Tk()
